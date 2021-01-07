@@ -25,5 +25,17 @@ public boolean add(String value){
   size = size + 1;
   return true;
 }
+public void add(int index, String value){
+  node hold = new Node(value);
+  Node current = start;
+  if (current != null) {
+    for(int i = 0; (i < index) && (current.getNext() != null); i++){
+       current = current.getNext();
+     }
+   }
+   hold.setNext(current.getNext());
+   current.setNext(hold);
+   size += 1;
+  }
 
 }

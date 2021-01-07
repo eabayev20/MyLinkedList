@@ -10,3 +10,20 @@ public class MyLinkedList{
 public int size(){
   return size;
 }
+public boolean add(String value){
+  if (start == null) {
+    start = new Node(value);
+    return true;
+  }
+  Node new = new Node(value);
+  new.setNext(null);
+  Node current = start;
+  while (current.getNext() != null) {
+    current = current.getNext();
+  }
+  current.setNext(new);
+  size = size + 1;
+  return true;
+}
+
+}

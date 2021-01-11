@@ -57,6 +57,15 @@ public void add(int index, String value){
    Node current = move(index);
    return current.getData();
  }
+ public String set(int index, String value){
+  if(index < 0 || index >= size()){
+    throw new IndexOutOfBoundsException("Index is out of bounds!");
+  }
+  Node current = move(index);
+  String prev = current.getData();
+  current.setData(value);
+  return prev;
+}
   public String toString(){
    String s = "";
 

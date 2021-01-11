@@ -37,5 +37,33 @@ public void add(int index, String value){
    current.setNext(hold);
    size += 1;
   }
+  private Node move(int index){
+     if(index < 0 || index >= size()){
+          throw new IndexOutOfBoundsException("Index is out of bounds!");
+     }
+     if (index == 0) return start;
+     if (index == size - 1) return end;
+     Node current = start;
+     for(int i = 0; i < index; i++){
+       current = current.getNext();
+     }
+     return current;
+   }
+  public String toString(){
+   String s = "";
+
+		if (start != null) {
+			Node current = start.getNext();
+			while (current != null) {
+				s += current.getData().toString();
+        if(current.getNext() != null){
+          s += ", ";
+        }
+				current = current.getNext();
+			}
+
+		}
+		return "[" + s + "]";
+ }
 
 }

@@ -112,5 +112,13 @@ public void add(int index, String value){
    size=size - 1;
    return oldValue;
  }
+ public void extend(MyLinkedList other){
+   size = other.size + size;
+   Node old = end.getData();
+   Node first = other.getData();
+   old.getNext().setNext(first);
+   first.getPrev().setPrev(old);
+   other.size = 0;
+ }
 
 }

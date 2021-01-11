@@ -49,6 +49,14 @@ public void add(int index, String value){
      }
      return current;
    }
+
+  public String get(int index){
+  if(index < 0 || index >= size()){
+       throw new IndexOutOfBoundsException("Index is out of bounds!");
+  }
+   Node current = move(index);
+   return current.getData();
+ }
   public String toString(){
    String s = "";
 

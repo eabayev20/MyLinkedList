@@ -15,18 +15,18 @@ public boolean add(String value){
     start = new Node(value);
     return true;
   }
-  Node new = new Node(value);
-  new.setNext(null);
+  Node new2 = new Node(value);
+  new2.setNext(null);
   Node current = start;
   while (current.getNext() != null) {
     current = current.getNext();
   }
-  current.setNext(new);
+  current.setNext(new2);
   size = size + 1;
   return true;
 }
 public void add(int index, String value){
-  node hold = new Node(value);
+  Node hold = new Node(value);
   Node current = start;
   if (current != null) {
     for(int i = 0; (i < index) && (current.getNext() != null); i++){
@@ -114,11 +114,12 @@ public void add(int index, String value){
  }
  public void extend(MyLinkedList other){
    size = other.size + size;
-   Node old = end.getData();
-   Node first = other.getData();
-   old.getNext().setNext(first);
-   first.getPrev().setPrev(old);
+   end.setNext(other.start);
+  other.start.setPrev(end);
+
    other.size = 0;
+   other.start = null;
+  other.end = null;
  }
 
 }
